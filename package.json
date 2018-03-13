@@ -4,7 +4,8 @@
   "description": "Automating things on xing",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/HeeL/xinger/issues"
   },
-  "homepage": "https://github.com/HeeL/xinger#readme"
+  "homepage": "https://github.com/HeeL/xinger#readme",
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0"
+  }
 }
