@@ -2,10 +2,13 @@
   "name": "xinger",
   "version": "1.0.0",
   "description": "Automating things on xing",
-  "main": "index.js",
+  "main": "bin/xinger.js",
   "scripts": {
     "test": "npm run lint",
     "lint": "eslint ."
+  },
+  "bin": {
+    "xinger": "bin/xinger.js"
   },
   "repository": {
     "type": "git",
