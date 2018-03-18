@@ -3,11 +3,14 @@
 const cli = require('cli');
 const R = require('ramda');
 const acceptRequests = require('../src/acceptRequests');
+const XingCrawler = require('../lib/XingCrawler');
 
 const cliOptions = {
     accept: ['a', 'Accept all incoming contact requests']
 };
-const optionFunctions = { accept: acceptRequests };
+const optionFunctions = {
+    accept: acceptRequests.bind(null, XingCrawler)
+};
 
 R.pipe(
     cli.parse,
