@@ -11,6 +11,7 @@ const createXingCrawlerStub = (
     visitRequestsPage,
     acceptPendingRequests
 });
+sinon.stub(console, 'log');
 
 test('instantiates injected class', t => {
     const xingCrawlerStub = createXingCrawlerStub();
