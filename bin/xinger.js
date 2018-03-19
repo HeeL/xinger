@@ -4,6 +4,7 @@ const cli = require('cli');
 const R = require('ramda');
 const acceptRequests = require('../src/acceptRequests');
 const XingCrawler = require('../lib/XingCrawler');
+require('dotenv').config();
 
 const cliOptions = {
     accept: ['a', 'Accept all incoming contact requests']
