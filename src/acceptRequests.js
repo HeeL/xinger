@@ -2,7 +2,9 @@ module.exports = async (XingCrawler) => {
     console.log('Starting accepting requests');
     const crawler = new XingCrawler({ headless: false });
 
-    crawler.signIn();
-    crawler.visitRequestsPage();
-    crawler.acceptPendingRequests();
+    await crawler.init();
+    await crawler.signIn();
+    await crawler.visitRequestsPage();
+    await crawler.acceptPendingRequests();
+    await crawler.finish();
 };
