@@ -5,13 +5,11 @@ import acceptRequests from '../../../src/acceptRequests';
 const createXingCrawlerStub = (
     init = () => {},
     signIn = () => {},
-    visitRequestsPage = () => {},
     acceptPendingRequests = () => {},
     finish = () => {}
 ) => sinon.stub().returns({
     init,
     signIn,
-    visitRequestsPage,
     acceptPendingRequests,
     finish
 });
@@ -40,36 +38,24 @@ test('signs in after initialization', async t => {
     t.true(signInSpy.calledOnce);
 });
 
-test('visits requests page after sign in', async t => {
+test('accepts requests after sign In', async t => {
     const signInSpy = sinon.spy();
-    const visitRequestsPageSpy = sinon.spy();
-    const xingCrawlerStub = createXingCrawlerStub(undefined, signInSpy, visitRequestsPageSpy);
-    await acceptRequests(xingCrawlerStub);
-
-    t.true(visitRequestsPageSpy.calledOnce);
-    t.true(visitRequestsPageSpy.calledImmediatelyAfter(signInSpy));
-});
-
-test('accepts requests after navigating on requests page', async t => {
-    const visitRequestsPageSpy = sinon.spy();
     const acceptPendingRequestsSpy = sinon.spy();
     const xingCrawlerStub = createXingCrawlerStub(
         undefined,
-        undefined,
-        visitRequestsPageSpy,
+        signInSpy,
         acceptPendingRequestsSpy
     );
     await acceptRequests(xingCrawlerStub);
 
     t.true(acceptPendingRequestsSpy.calledOnce);
-    t.true(acceptPendingRequestsSpy.calledImmediatelyAfter(visitRequestsPageSpy));
+    t.true(acceptPendingRequestsSpy.calledImmediatelyAfter(signInSpy));
 });
 
 test('calls finish() after accepting requests', async t => {
     const acceptPendingRequestsSpy = sinon.spy();
     const finishSpy = sinon.spy();
     const xingCrawlerStub = createXingCrawlerStub(
-        undefined,
         undefined,
         undefined,
         acceptPendingRequestsSpy,

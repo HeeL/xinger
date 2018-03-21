@@ -4,7 +4,6 @@ module.exports = async (XingCrawler) => {
 
     await crawler.init();
     await crawler.signIn();
-    await crawler.visitRequestsPage();
     await crawler.acceptPendingRequests();
     await crawler.finish();
 };
