@@ -1,5 +1,5 @@
 module.exports = async (XingCrawler) => {
-    console.log('Starting accepting requests');
+    console.log('Start accepting requests');
     const crawler = new XingCrawler({ headless: false });
 
     await crawler.init();
