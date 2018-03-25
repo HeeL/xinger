@@ -14,7 +14,7 @@ module.exports = async (XingCrawler, createProfiles) => {
 
     await crawler.init();
     await crawler.signIn();
-    await crawler.visitGroupPageProfiles('groupID');
+    await crawler.visitGroupPageProfiles('muenchen-xing-ambassador-community-d6b8-1071145');
     await collectProfilesFromPage(crawler, createProfiles);
     await crawler.finish();
 };
