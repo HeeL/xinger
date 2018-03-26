@@ -4,7 +4,7 @@ const collectProfilesFromPage = async (crawler, createProfiles) => {
     const nextPageExists = await crawler.nextPageExists();
     if (nextPageExists) {
         await crawler.visitNextPage();
-        collectProfilesFromPage(crawler, createProfiles);
+        await collectProfilesFromPage(crawler, createProfiles);
     }
 };
 
@@ -14,7 +14,7 @@ module.exports = async (XingCrawler, createProfiles) => {
 
     await crawler.init();
     await crawler.signIn();
-    await crawler.visitGroupPageProfiles('muenchen-xing-ambassador-community-d6b8-1071145');
+    await crawler.visitGroupPageProfiles('it-und-data-xing-ambassador-community-500b-1071386');
     await collectProfilesFromPage(crawler, createProfiles);
     await crawler.finish();
 };
