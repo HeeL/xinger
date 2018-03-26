@@ -12,16 +12,25 @@ const cliOptions = {
     accept: ['a', 'Accept all incoming contact requests'],
     collect: ['c', 'Collect and persist premium profiles']
 };
+
 const optionFunctions = {
     accept: acceptRequests.bind(null, XingCrawler),
     collect: collectProfiles.bind(null, XingCrawler, createProfiles),
 };
 
+const filterSelectedOptions = R.compose(
+    R.keys,
+    R.filter(R.equals(true))
+);
+
+const pickHandlersForOptions = R.compose(
+    R.values,
+    R.flip(R.pickAll)(optionFunctions),
+);
+
 R.pipe(
     cli.parse,
-    R.filter(R.equals(true)),
-    R.keys,
-    R.flip(R.pickAll)(optionFunctions),
-    R.values,
+    filterSelectedOptions,
+    pickHandlersForOptions,
     R.map(R.call)
 )(cliOptions);
