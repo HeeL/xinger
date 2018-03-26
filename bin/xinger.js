@@ -2,10 +2,10 @@
 
 const cli = require('cli');
 const R = require('ramda');
-const acceptRequests = require('../src/acceptRequests');
-const collectProfiles = require('../src/collectPremiumProfiles');
+const acceptRequests = require('../src/handlers/acceptRequests');
+const collectProfiles = require('../src/handlers/collectPremiumProfiles');
 const XingCrawler = require('../lib/XingCrawler');
-const createProfiles = require('../src/createProfiles');
+const createProfiles = require('../src/profile/createProfiles');
 require('dotenv').config();
 
 const cliOptions = {

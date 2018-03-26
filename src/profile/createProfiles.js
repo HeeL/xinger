@@ -1,5 +1,5 @@
-require('./db/connect');
-const ProfileModel = require('./db/models/profile');
+require('../db/connect');
+const ProfileModel = require('../db/models/profile');
 const R = require('ramda');
 
 const transformProfileIdToProfileObject = profileId => ({ profileId });

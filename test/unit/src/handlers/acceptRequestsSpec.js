@@ -1,6 +1,6 @@
 import test from 'ava';
 import sinon from 'sinon';
-import acceptRequests from '../../../src/acceptRequests';
+import acceptRequests from '../../../../src/handlers/acceptRequests';
 
 const createXingCrawlerStub = (
     init = () => {},

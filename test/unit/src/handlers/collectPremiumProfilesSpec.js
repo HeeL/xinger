@@ -1,6 +1,6 @@
 import test from 'ava';
 import sinon from 'sinon';
-import collectPremiumProfiles from '../../../src/collectPremiumProfiles';
+import collectPremiumProfiles from '../../../../src/handlers/collectPremiumProfiles';
 
 const createXingCrawlerStub = (spies = {}) => sinon.stub().returns({
     init: spies.init || (() => {}),
